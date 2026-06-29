@@ -66,7 +66,63 @@ nav a:hover{color:#000;}
     letter-spacing:-2px;
     font-weight:700;
 }
+.hero-video{
+    position:relative;
+    height:100vh;
+    width:100%;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
 
+/* VIDEO */
+.hero-video video{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%) scale(1.1);
+    min-width:100%;
+    min-height:100%;
+    object-fit:cover;
+    animation: zoomOut 12s ease-in-out infinite alternate;
+}
+
+/* subtle zoom effect */
+@keyframes zoomOut {
+    from { transform:translate(-50%, -50%) scale(1.15); }
+    to   { transform:translate(-50%, -50%) scale(1.0); }
+}
+
+/* DARK OVERLAY */
+.overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.45);
+    top:0;
+    left:0;
+}
+
+/* TEXT ON TOP */
+.hero-content{
+    position:relative;
+    z-index:2;
+    color:white;
+    padding:20px;
+}
+
+.hero-content h2{
+    font-size:64px;
+    letter-spacing:-2px;
+}
+
+.hero-content p{
+    margin-top:12px;
+    font-size:18px;
+    color:#ddd;
+}
 .hero p{
     max-width:600px;
     margin-top:14px;
@@ -291,13 +347,23 @@ footer{
     </div>
 </nav>
 
-<div class="hero">
-    <h2>Minimal Studio</h2>
-    <p>High-end visual content for real estate, brands & experiences</p>
+<div class="hero-video">
 
-    <div class="cta">
-        <a href="#contact">Book a Shoot</a>
+    <video autoplay muted loop playsinline>
+        <source src="https://cdn.coverr.co/videos/coverr-modern-luxury-home-1577/1080p.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+        <h2>Minimal Studio</h2>
+        <p>High-end visual content for real estate, brands & experiences</p>
+
+        <div class="cta">
+            <a href="#contact">Book a Shoot</a>
+        </div>
     </div>
+
 </div>
 
 <section id="services">
