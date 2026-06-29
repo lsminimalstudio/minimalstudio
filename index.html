@@ -13,27 +13,13 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
-    scroll-behavior: smooth
-    .whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    padding: 14px 16px;
-    border-radius: 50px;
-    font-size: 14px;
-    text-decoration: none;
-    z-index: 3000;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-};
+    scroll-behavior: smooth;
 }
-<a class="whatsapp" href="https://wa.me/3069XXXXXXXX" target="_blank">
-    WhatsApp
-</a>
+
 body {
     background: #fff;
     color: #111;
+    line-height: 1.6;
 }
 
 /* NAV */
@@ -70,26 +56,28 @@ nav a:hover {
 
 /* HERO */
 .hero {
-    padding: 170px 20px 100px;
+    padding: 180px 20px 110px;
     text-align: center;
 }
 
 .hero h2 {
-    font-size: 54px;
+    font-size: 56px;
     font-weight: 700;
+    letter-spacing: -1px;
 }
 
 .hero p {
-    margin-top: 10px;
+    margin-top: 12px;
     font-size: 18px;
     color: #555;
 }
 
 /* SECTIONS */
 section {
-    padding: 90px 20px;
+    padding: 100px 20px;
     max-width: 1000px;
     margin: auto;
+
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.8s ease;
@@ -103,9 +91,14 @@ section.show {
 h3 {
     font-size: 30px;
     margin-bottom: 20px;
+    letter-spacing: -0.5px;
 }
 
-/* CARDS */
+p {
+    color: #444;
+}
+
+/* SERVICES */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -117,6 +110,7 @@ h3 {
     padding: 25px;
     border-radius: 14px;
     transition: 0.3s;
+    background: #fff;
 }
 
 .card:hover {
@@ -151,11 +145,11 @@ h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.92);
     display: none;
     align-items: center;
     justify-content: center;
-    z-index: 2000;
+    z-index: 9999;
 }
 
 .lightbox img {
@@ -169,28 +163,61 @@ h3 {
     text-align: center;
 }
 
-.btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 22px;
-    background: #111;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 10px;
+.contact-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-/* WHATSAPP */
-.whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    padding: 14px 16px;
-    border-radius: 50px;
-    font-size: 14px;
+.btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 10px;
     text-decoration: none;
-    z-index: 3000;
+    font-size: 14px;
+    background: #111;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+.instagram { background: #E1306C; }
+.whatsapp { background: #25D366; }
+
+/* FLOATING BAR */
+.social-float {
+    position: fixed;
+    right: 18px;
+    bottom: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+}
+
+.social-float a {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.25s;
+}
+
+.social-float a:hover {
+    transform: scale(1.1);
 }
 
 /* FOOTER */
@@ -199,6 +226,7 @@ footer {
     padding: 40px;
     font-size: 12px;
     color: #888;
+    border-top: 1px solid #eee;
 }
 </style>
 </head>
@@ -224,13 +252,16 @@ footer {
 </div>
 
 <!-- ABOUT -->
-<section>
+<section id="about">
     <h3>About Us</h3>
-    <p>Premium photography, video & 360° experiences designed to elevate spaces and brands.</p>
+    <p>
+        Στο Minimal Studio δημιουργούμε premium φωτογραφία, video και 360° virtual tours,
+        αναδεικνύοντας χώρους και brands με σύγχρονη αισθητική και επαγγελματικό αποτέλεσμα.
+    </p>
 </section>
 
 <!-- SERVICES -->
-<section>
+<section id="services">
     <h3>Services</h3>
 
     <div class="grid">
@@ -241,7 +272,7 @@ footer {
 </section>
 
 <!-- GALLERY -->
-<section>
+<section id="gallery">
     <h3>Gallery</h3>
 
     <div class="gallery">
@@ -257,11 +288,15 @@ footer {
     <h3>Contact</h3>
     <p>lsminimalstudio@gmail.com</p>
 
-    <a class="btn" href="mailto:lsminimalstudio@gmail.com">Send Email</a>
+    <div class="contact-buttons">
+        <a class="btn" href="mailto:lsminimalstudio@gmail.com">Send Email</a>
+        <a class="btn instagram" href="https://instagram.com/minimals__" target="_blank">Instagram</a>
+        <a class="btn whatsapp" href="https://wa.me/3069XXXXXXXX" target="_blank">WhatsApp</a>
+    </div>
 </section>
 
 <footer>
-    © 2026 Minimal Studio
+    © 2026 Minimal Studio. All rights reserved.
 </footer>
 
 <!-- LIGHTBOX -->
@@ -269,20 +304,22 @@ footer {
     <img id="lightbox-img">
 </div>
 
-<!-- WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/0000000000" target="_blank">
-    WhatsApp
-</a>
+<!-- FLOATING SOCIAL -->
+<div class="social-float">
+    <a href="mailto:lsminimalstudio@gmail.com">✉️</a>
+    <a href="https://instagram.com/minimals__" target="_blank">📸</a>
+    <a href="https://wa.me/3069XXXXXXXX" target="_blank">💬</a>
+</div>
 
 <script>
 // LIGHTBOX
-function openLightbox(src) {
-    document.getElementById('lightbox').style.display = 'flex';
-    document.getElementById('lightbox-img').src = src;
+function openLightbox(src){
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = src;
 }
 
-function closeLightbox() {
-    document.getElementById('lightbox').style.display = 'none';
+function closeLightbox(){
+    document.getElementById("lightbox").style.display = "none";
 }
 
 // SCROLL ANIMATION
