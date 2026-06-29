@@ -24,7 +24,6 @@
 
     /* NAV */
     nav {
-       transition: all 0.3s ease;
         position: fixed;
         top: 0;
         width: 100%;
@@ -32,9 +31,11 @@
         backdrop-filter: blur(10px);
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 18px 40px;
         border-bottom: 1px solid #eee;
         z-index: 1000;
+        transition: all 0.3s ease;
     }
 
     nav h1 {
@@ -47,6 +48,7 @@
         text-decoration: none;
         color: #333;
         font-size: 14px;
+        transition: 0.2s;
     }
 
     nav a:hover {
@@ -55,12 +57,12 @@
 
     /* HERO */
     .hero {
-        padding: 140px 20px 80px;
+        padding: 160px 20px 90px;
         text-align: center;
     }
 
     .hero h2 {
-        font-size: 48px;
+        font-size: 52px;
         font-weight: 700;
         margin-bottom: 10px;
     }
@@ -80,7 +82,7 @@
     }
 
     h3 {
-        font-size: 28px;
+        font-size: 30px;
         margin-bottom: 20px;
     }
 
@@ -98,22 +100,34 @@
 
     .card {
         border: 1px solid #eee;
-        padding: 20px;
-        border-radius: 12px;
+        padding: 25px;
+        border-radius: 14px;
+        background: #fff;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.08);
     }
 
     /* GALLERY */
     .gallery {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 10px;
+        gap: 12px;
     }
 
     .gallery img {
         width: 100%;
-        height: 200px;
+        height: 220px;
         object-fit: cover;
-        border-radius: 10px;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+        transform: scale(1.03);
     }
 
     /* CONTACT */
@@ -121,17 +135,30 @@
         text-align: center;
     }
 
+    .btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 12px 22px;
+        background: #111;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+
     footer {
         text-align: center;
         padding: 40px;
         font-size: 12px;
         color: #888;
+        border-top: 1px solid #eee;
     }
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
     <h1>Minimal Studio</h1>
     <div>
@@ -151,9 +178,6 @@
         Φωτογραφία • Video • 360° Virtual Tours
     </p>
 </div>
-    <h2>Minimal Studio</h2>
-    <p>Φωτογραφία • Video • 360° Virtual Tours για ακίνητα & επιχειρήσεις</p>
-</div>
 
 <!-- ABOUT -->
 <section id="about">
@@ -161,7 +185,7 @@
     <p>
         Στο Minimal Studio εξειδικευόμαστε στη δημιουργία υψηλής ποιότητας οπτικού περιεχομένου
         για ακίνητα, επαγγελματικούς χώρους και επιχειρήσεις. Στόχος μας είναι να αναδεικνύουμε
-        κάθε χώρο με σύγχρονη, καθαρή και premium αισθητική.
+        κάθε χώρο με σύγχρονη, καθαρή και premium αισθητική, βοηθώντας τα brands να ξεχωρίσουν.
     </p>
 </section>
 
@@ -172,17 +196,17 @@
     <div class="grid">
         <div class="card">
             <h4>Real Estate Content</h4>
-            <p>Φωτογράφιση και video για ακίνητα & Airbnb.</p>
+            <p>Φωτογράφιση, video & περιεχόμενο για ακίνητα και Airbnb.</p>
         </div>
 
         <div class="card">
             <h4>Commercial Spaces</h4>
-            <p>Content για επιχειρήσεις και επαγγελματικούς χώρους.</p>
+            <p>Προβολή επιχειρήσεων με premium visual content.</p>
         </div>
 
         <div class="card">
             <h4>360° Virtual Tours</h4>
-            <p>Διαδραστικές εμπειρίες χώρων για online παρουσίαση.</p>
+            <p>Διαδραστικές εμπειρίες που αναδεικνύουν κάθε χώρο.</p>
         </div>
     </div>
 </section>
@@ -204,26 +228,13 @@
     <h3>Contact</h3>
     <p>Email: lsminimalstudio@gmail.com</p>
     <p>Instagram: minimals__</p>
+
+    <a class="btn" href="mailto:lsminimalstudio@gmail.com">Send Email</a>
 </section>
 
 <footer>
     © 2026 Minimal Studio. All rights reserved.
 </footer>
-.card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
-
-.gallery img {
-    transition: transform 0.3s ease;
-}
-
-.gallery img:hover {
-    transform: scale(1.03);
-}
 </body>
 </html>
