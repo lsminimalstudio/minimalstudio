@@ -161,14 +161,11 @@ h3{
 /* LIGHTBOX */
 .lightbox{
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.92);
+    inset:0;
+    background:rgba(0,0,0,.93);
     display:none;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     z-index:9999;
 }
 
@@ -176,6 +173,40 @@ h3{
     max-width:90%;
     max-height:90%;
     border-radius:10px;
+}
+
+.prev,
+.next,
+.close{
+    position:absolute;
+    color:#fff;
+    font-size:40px;
+    cursor:pointer;
+    user-select:none;
+}
+
+.prev{
+    left:30px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.next{
+    right:30px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.close{
+    top:20px;
+    right:30px;
+    font-size:34px;
+}
+
+.prev:hover,
+.next:hover,
+.close:hover{
+    opacity:.7;
 }
 
 /* REVIEWS */
@@ -388,8 +419,16 @@ footer{
 </footer>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="this.style.display='none'">
+<div class="lightbox" id="lightbox">
+
+    <span class="close" onclick="closeLightbox()">✕</span>
+
+    <span class="prev" onclick="changeImage(-1)">❮</span>
+
     <img id="lightbox-img">
+
+    <span class="next" onclick="changeImage(1)">❯</span>
+
 </div>
 
 <!-- FLOAT -->
@@ -400,17 +439,52 @@ footer{
 </div>
 
 <script>
+
+const images = document.querySelectorAll('.gallery img');
+
+let current = 0;
+
 function openLightbox(src){
-    document.getElementById('lightbox').style.display='flex';
-    document.getElementById('lightbox-img').src=src;
+
+    current = [...images].findIndex(img => img.src === src);
+
+    document.getElementById("lightbox").style.display="flex";
+    document.getElementById("lightbox-img").src=images[current].src;
 }
+
+function closeLightbox(){
+    document.getElementById("lightbox").style.display="none";
+}
+
+function changeImage(step){
+
+    current += step;
+
+    if(current < 0) current = images.length - 1;
+
+    if(current >= images.length) current = 0;
+
+    document.getElementById("lightbox-img").src = images[current].src;
+}
+
+document.addEventListener("keydown",function(e){
+
+    if(document.getElementById("lightbox").style.display==="flex"){
+
+        if(e.key==="ArrowRight") changeImage(1);
+
+        if(e.key==="ArrowLeft") changeImage(-1);
+
+        if(e.key==="Escape") closeLightbox();
+
+    }
+
+});
 
 function filter(cat){
     document.querySelectorAll('.item').forEach(el=>{
-        el.style.display = (cat==='all'||el.classList.contains(cat))?'block':'none';
+        el.style.display = (cat==='all'||el.classList.contains(cat)) ? 'block' : 'none';
     });
 }
-</script>
 
-</body>
-</html>
+</script>
