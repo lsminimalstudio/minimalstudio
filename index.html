@@ -16,6 +16,23 @@
     scroll-behavior:smooth;
 }
 
+.services-row{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:nowrap;
+}
+
+@media (max-width: 900px){
+    .services-row{
+        flex-wrap:wrap;
+    }
+
+    .services-row .card{
+        width:100%;
+    }
+}
+    
 body{
     background:#fff;
     color:#111;
