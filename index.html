@@ -93,27 +93,40 @@ nav a:hover{color:#000;}
 }
 
 .hero-content {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 2;
-  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
   padding: 0 20px;
+  color: white;
+}
+    
+.hero h1 {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  margin: 0;
+  text-align: center;
 }
 
+.hero p {
+  font-size: 18px;
+  max-width: 600px;
+  margin-top: 14px;
+  color: rgba(255,255,255,0.85);
+  text-align: center;
+}
+    
 .hero h2{
     font-size:64px;
     letter-spacing:-2px;
     font-weight:700;
-}
-
-.hero p{
-    max-width:600px;
-    margin-top:14px;
-    font-size:18px;
-    color:#666;
 }
 
 .cta{
