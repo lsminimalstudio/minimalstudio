@@ -69,13 +69,36 @@ nav a{
 nav a:hover{color:#000;}
 
 /* HERO */
-.hero{
-    padding:200px 20px 120px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  opacity: 0.5; /* 👈 εδώ έχεις το 50% διαφάνεια */
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3); /* προαιρετικό για καλύτερο contrast */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .hero h2{
@@ -339,13 +362,16 @@ footer{
 </nav>
 
 <div class="hero">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="villa.mp4" type="video/mp4">
+  </video>
 
-    <h2>Minimal Studio</h2>
-    <p>High-end visual content for real estate, brands & experiences</p>
+  <div class="hero-overlay"></div>
 
-    <div class="cta">
-        <a href="#contact">Book a Shoot</a>
-    </div>
+  <div class="hero-content">
+    <h1>Minimal Studio</h1>
+    <p>High-quality visual content for real estate & spaces</p>
+  </div>
 </div>
 
 <section id="services">
