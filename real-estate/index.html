@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real Estate | Minimal Studio</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Inter, sans-serif;
+    background:#fff;
+}
+
+header{
+    padding:20px;
+    text-align:center;
+}
+
+a.back{
+    display:inline-block;
+    margin-top:10px;
+    text-decoration:none;
+    color:#111;
+    font-weight:600;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:12px;
+    padding:20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.gallery img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Real Estate Photography</h1>
+    <a class="back" href="../index.html">← Back to Home</a>
+</header>
+
+<div class="gallery" id="gallery"></div>
+
+<script>
+const images = [
+"343490516.jpg",
+"343490544.jpg",
+"343492880.jpg",
+"343494012.jpg",
+"344344910.jpg",
+"344344914.jpg",
+"344344923.jpg",
+"344344926.jpg",
+"344344933.jpg",
+"344344943.jpg",
+"344349414.jpg",
+"348912169.jpg",
+"348912184.jpg",
+"348913876.jpg",
+"348914388.jpg",
+"348916586.jpg",
+"348916604.jpg",
+"348916613.jpg",
+"348939930.jpg",
+"365516634.jpg",
+"365516635.jpg",
+"365516636.jpg",
+"365516640.jpg",
+"365520468.jpg",
+"365520477.jpg",
+"365520478.jpg",
+"365520483.jpg",
+"365548480.jpg",
+"462441818.jpg",
+"541871338.jpg"
+];
+
+const gallery = document.getElementById("gallery");
+
+images.forEach(img => {
+    const el = document.createElement("img");
+    el.src = img;
+    gallery.appendChild(el);
+});
+</script>
+
+</body>
+</html>
