@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events | Minimal Studio</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Inter, sans-serif;
+    background:#fff;
+}
+
+header{
+    padding:20px;
+    text-align:center;
+}
+
+a.back{
+    display:inline-block;
+    margin-top:10px;
+    text-decoration:none;
+    color:#111;
+    font-weight:600;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:12px;
+    padding:20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.gallery img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Events & Aesthetics</h1>
+    <a class="back" href="../index.html">← Back to Home</a>
+</header>
+
+<div class="gallery" id="gallery"></div>
+
+<script>
+const images = [
+"Wedding01.jpeg",
+"Wedding02.jpeg",
+"Wedding03.jpeg",
+"Wedding04.jpeg",
+"Wedding05.jpeg",
+"Wedding06.jpeg",
+"Wedding07.jpeg",
+"Wedding08.jpeg",
+"Wedding09.jpeg",
+"Wedding10.jpeg",
+"Wedding11.jpeg",
+"Wedding12.jpeg",
+"Wedding13.jpeg"
+];
+
+const gallery = document.getElementById("gallery");
+
+images.forEach(img => {
+    const el = document.createElement("img");
+    el.src = img;
+    gallery.appendChild(el);
+});
+</script>
+
+</body>
+</html>
