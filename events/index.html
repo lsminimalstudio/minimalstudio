@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events | Minimal Studio</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Inter, sans-serif;
+    background:#fff;
+}
+
+header{
+    padding:20px;
+    text-align:center;
+}
+
+a.back{
+    display:inline-block;
+    margin-top:10px;
+    text-decoration:none;
+    color:#111;
+    font-weight:600;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:12px;
+    padding:20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.gallery img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Events & Aesthetics</h1>
+    <a class="back" href="../index.html">← Back to Home</a>
+</header>
+
+<div class="gallery" id="gallery"></div>
+
+<script>
+const images = [
+"IMG_3092.jpeg",
+"IMG_3110.jpeg",
+"IMG_3114.jpeg",
+"att.Yh7fN08wXXZToMEpNgyZwJoPtREHoERFq9-IaIZfIrY.jpg.jpeg",
+"image00004 (1).jpeg",
+"image00006.jpeg",
+"Messenger_creation_2D0F1031-2CCA-494E-8E86-6CCEBB39FD2A.jpeg",
+"Messenger_creation_B1F4AFF4-747D-4E5A-8C62-3AFE0B66D79E.jpeg",
+"Messenger_creation_ADBB625A-25BF-4EC3-8759-5E097F57C4FD.jpeg",
+"Messenger_creation_D8350FE6-AAA4-4D74-A241-DCB87E61BF5E.jpeg",
+"Messenger_creation_D66F5699-9317-4038-9D15-5EADF9D2F902.jpeg",
+"Messenger_creation_FF7A53D9-E29D-4D48-A080-ED39A587E83D.jpeg",
+"Messenger_creation_F563EFCA-83CB-4995-8797-B9CF9F372A44.jpeg",
+"IMG_9280.JPG",
+"IMG_9256.JPG"
+];
+
+const gallery = document.getElementById("gallery");
+
+images.forEach(src => {
+    const img = document.createElement("img");
+    img.src = "events/" + src;
+    gallery.appendChild(img);
+});
+</script>
+
+</body>
+</html>
